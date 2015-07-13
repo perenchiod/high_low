@@ -1,10 +1,10 @@
 <?php 
 
-	$randomVar = rand(1,100);
-	$tries = 0;
 	fwrite(STDOUT, "Guess a number between 1-100 and get hints to find the random number." . PHP_EOL);
 	
 	do {
+	$randomVar = rand(1,100);
+	$tries = 0;
 		do {
 			$tries++;
 			fwrite(STDOUT, "Guess: ");
