@@ -7,7 +7,7 @@
 			do {
 				//Stops loop if user enters too many times
 				if($tries == 5){
-					fwrite(STDOUT , "TOO MANY TRIES" . PHP_EOL);
+					fwrite(STDOUT , "Out of tries ¯＼_(ツ)_/¯" . PHP_EOL);
 					break;
 				}
 				fwrite(STDOUT, "Guess: ");
@@ -15,14 +15,15 @@
 
 				if($userVar > $randomVar) {
 					fwrite(STDOUT, "You guessed high" . PHP_EOL);
-				} else {
+				} 
+				if($userVar < $randomVar){
 					fwrite(STDOUT, "You guess low" . PHP_EOL);
 				}
 
 				//Gives user warning and hint after set amount of tries
 				if($tries == 3) {
 					$hint = substr($randomVar, -1);
-					fwrite(STDOUT, "1 guess remaining :X". PHP_EOL. "Here's a hint... the last number is ". $hint . PHP_EOL);
+					fwrite(STDOUT, "1 guess remaining (ಠ_ಠ)". PHP_EOL. "Here's a hint... the last number is ". $hint . PHP_EOL);
 				}
 				//Runs when the user guesses the number correctly
 				if($userVar == $randomVar) {
@@ -32,7 +33,8 @@
 			}while($randomVar != $userVar);
 			
 			fwrite(STDOUT, "Would you like to play again (y/n): ");
-			$userAns = trim(fgets(STDIN));
-	}while($userAns == "y" || $userAns == "Y");
+			//Gets the users answer if they want to play agian sets it to lowercase and trims it
+			$userAns = strtolower(trim(fgets(STDIN)));
+	}while($userAns == "y");
 
 ?>
